@@ -2,6 +2,7 @@ import './login-modal/login-modal.js';
 import './login-modal-heading/login-modal-heading.js';
 import './form-button/form-button.js';
 import './form-fields/form-fields.js';
+import './access-error/access-errror.js';
 import { $body } from '../body/body.js';
 
 const LOGIN_MODAL_BODY = `
@@ -15,6 +16,7 @@ const LOGIN_MODAL_BODY = `
         <label>Senha</label>
         <input placeholder="Sua senha..." type="password" />
     </div>
+    <p id="access-error">Usuário inexistente!</p>
     <button id="form-btn">Entrar</button>
 </div>`;
 
