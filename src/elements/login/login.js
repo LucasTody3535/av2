@@ -5,6 +5,8 @@ import './form-fields/form-fields.js';
 import './access-error/access-errror.js';
 import { $body } from '../body/body.js';
 
+let LOGGED_USER = null;
+
 const LOGIN_MODAL_BODY = `
 <div id="login-modal">
     <p id="login-modal-heading">Login</p>
@@ -23,3 +25,6 @@ const LOGIN_MODAL_BODY = `
 export function renderLoginModal() {
     $body.html(LOGIN_MODAL_BODY);
 }
+
+export const getLoggedUser = () => LOGGED_USER;
+export const setLoggedUser = user => { LOGGED_USER = user };
