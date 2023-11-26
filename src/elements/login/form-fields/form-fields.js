@@ -24,3 +24,6 @@ $formFields.children("label").css({
     "height": "40%",
     "font-size": "13.5px"
 })
+
+export const nameInputValue = () => $formFields.children("input")[0].value;
+export const passwordInputValue = () => $formFields.children("input")[1].value;
