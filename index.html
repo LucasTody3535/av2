@@ -6,8 +6,20 @@
     <link rel="stylesheet" href="index.css">
     <title>AV2</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="module" src="index.js"></script>
 </head>
 <body>
-    <h1>Works</h1>
+    <div id="login-modal">
+       <p id="login-modal-heading">Login</p>
+       <div class="form-field">
+        <label>Nome</label>
+        <input placeholder="Seu nome..." type="text" />
+       </div>
+       <div class="form-field">
+        <label>Senha</label>
+        <input placeholder="Sua senha..." type="password" />
+       </div>
+       <button id="form-btn">Entrar</button>
+    </div>
 </body>
 </html>
