@@ -10,6 +10,14 @@ const $formFields = $(".form-field");
 const $loginModal = $("#login-modal");
 const $loginModalHeading = $("#login-modal-heading");
 
+// --------------------------- LOGIN DATA ---------------------------
+
+let loggedUser = null;
+
+function setLoggedUser(user) {
+    loggedUser = user;
+}
+
 // --------------------------- DATABASE ---------------------------
 
 const DATABASE = [
@@ -43,9 +51,7 @@ function showAccessError() {
 }
 
 function hideAccessError() {
-    $accessError.animate({
-        "display": "none"
-    });
+    $accessError.fadeOut();
 }
 
 function applyResponsivenessToAccessErrorElement(width) {
@@ -70,6 +76,7 @@ function login() {
     for(let user of DATABASE) {
         if(user.name === nameInputValue() && user.password === passwordInputValue()) {
             setLoggedUser(user);
+            hideAccessError();
             return;
         } else {
             showAccessError();
