@@ -1,1 +1,0 @@
-export const WINDOW_MOBILE_BREAKPOINT = 420;
