@@ -85,7 +85,18 @@ function applyResponsivenessToAccessErrorElement(width) {
     }
 }
 
-// > FORM BUTTON
+// > FORM INPUTS
+
+const nameInputValue = () => $formFields.children("input")[0].value;
+const passwordInputValue = () => $formFields.children("input")[1].value;
+
+// --------------------------- LOGIN ---------------------------
+
+let loggedUser = null;
+
+function setLoggedUser(user) {
+    loggedUser = user;
+}
 
 function login() {
     for(let user of DATABASE) {
@@ -97,19 +108,6 @@ function login() {
             showAccessError();
         }
     }
-}
-
-// > FORM INPUTS
-
-const nameInputValue = () => $formFields.children("input")[0].value;
-const passwordInputValue = () => $formFields.children("input")[1].value;
-
-// --------------------------- LOGIN DATA ---------------------------
-
-let loggedUser = null;
-
-function setLoggedUser(user) {
-    loggedUser = user;
 }
 
 // --------------------------- DATABASE ---------------------------
