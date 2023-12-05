@@ -33,6 +33,10 @@ function applyResponsivenessToLoginModal(width) {
     }
 }
 
+function hideLoginModal() {
+    $loginModal.slideUp();
+}
+
 // > LOGIN MODAL HEADING
 
 function applyResponsivenessToLoginModalHeading(width) {
@@ -103,6 +107,7 @@ function login() {
         if(user.name === nameInputValue() && user.password === passwordInputValue()) {
             setLoggedUser(user);
             hideAccessError();
+            hideLoginModal();
             return;
         } else {
             showAccessError();
