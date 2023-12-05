@@ -10,6 +10,8 @@ const $formFields = $(".form-field");
 const $loginModal = $("#login-modal");
 const $loginModalHeading = $("#login-modal-heading");
 
+// > HOME PAGE
+const $home = $("#home");
 
 // --------------------------- ACTIONS ---------------------------
 
@@ -94,6 +96,14 @@ function applyResponsivenessToAccessErrorElement(width) {
 const nameInputValue = () => $formFields.children("input")[0].value;
 const passwordInputValue = () => $formFields.children("input")[1].value;
 
+// > HOME
+
+function showHome() {
+    $home.animate({
+        "opacity": "1"
+    }, 4000);
+}
+
 // --------------------------- LOGIN ---------------------------
 
 let loggedUser = null;
@@ -108,6 +118,7 @@ function login() {
             setLoggedUser(user);
             hideAccessError();
             hideLoginModal();
+            showHome();
             return;
         } else {
             showAccessError();
@@ -203,6 +214,11 @@ $loginModalHeading.css({
     "background-color": "rgb(34, 34, 34)",
 });
 
+// HOME PAGE
+
+$home.css({
+    "opacity": "0"
+});
 
 // --------------------------- RESIZE EVENTS ---------------------------
 
