@@ -10,41 +10,56 @@ const $formFields = $(".form-field");
 const $loginModal = $("#login-modal");
 const $loginModalHeading = $("#login-modal-heading");
 
-// --------------------------- LOGIN DATA ---------------------------
 
-let loggedUser = null;
+// --------------------------- ACTIONS ---------------------------
 
-function setLoggedUser(user) {
-    loggedUser = user;
+// > LOGIN MODAL
+
+function applyResponsivenessToLoginModal(width) {
+    if(width <= WINDOW_MOBILE_BREAKPOINT) {
+        $loginModal.css({
+            "height": "calc(100% - 20px)",
+            "width": "calc(100% - 20px)",
+            "border": "none",
+            "position": "unset"
+        });
+    } else {
+        $loginModal.css({
+            "height": "300px",
+            "width": "400px",
+            "border": "1px solid rgb(68, 68, 68)",
+            "position": "relative"
+        });
+    }
 }
 
-// --------------------------- DATABASE ---------------------------
+// > LOGIN MODAL HEADING
 
-const DATABASE = [
-    {
-        name: "Toodie",
-        password: "xpto_1234"
-    },
-    {
-        name: "Igor",
-        password: "781l9"
+function applyResponsivenessToLoginModalHeading(width) {
+    if(width <= WINDOW_MOBILE_BREAKPOINT) {
+        $loginModalHeading.css({
+            "top": "20px",
+            "padding": "10px 0",
+            "border-bottom": "1px solid rgba(0, 0, 0, 0.2)",
+            "width": "80%",
+            "text-align": "center",
+            "left": "10%",
+            "font-size": "20px"
+        });
+    } else {
+        $loginModalHeading.css({
+            "top": "-15px",
+            "padding": "5px 10px",
+            "border-bottom": "none",
+            "width": "unset",
+            "text-align": "unset",
+            "left": "unset",
+            "font-size": "unset"
+        });
     }
-];
+}
 
-// --------------------------- CONSTANTS ---------------------------
-
-const WINDOW_MOBILE_BREAKPOINT = 420;
-
-// --------------------------- STYLING ---------------------------
-
-
-// > ACCESS ERROR MESSAGE
-$accessError.css({
-    "position": "absolute",
-    "left": "115px",
-    "color": "red",
-    "display": "none"
-});
+// > ACCESS ERROR
 
 function showAccessError() {
     $accessError.fadeIn();
@@ -83,6 +98,49 @@ function login() {
         }
     }
 }
+
+// > FORM INPUTS
+
+const nameInputValue = () => $formFields.children("input")[0].value;
+const passwordInputValue = () => $formFields.children("input")[1].value;
+
+// --------------------------- LOGIN DATA ---------------------------
+
+let loggedUser = null;
+
+function setLoggedUser(user) {
+    loggedUser = user;
+}
+
+// --------------------------- DATABASE ---------------------------
+
+const DATABASE = [
+    {
+        name: "Toodie",
+        password: "xpto_1234"
+    },
+    {
+        name: "Igor",
+        password: "781l9"
+    }
+];
+
+// --------------------------- CONSTANTS ---------------------------
+
+const WINDOW_MOBILE_BREAKPOINT = 420;
+
+// --------------------------- STYLING ---------------------------
+
+
+// > ACCESS ERROR MESSAGE
+$accessError.css({
+    "position": "absolute",
+    "left": "115px",
+    "color": "red",
+    "display": "none"
+});
+
+// > FORM BUTTON
 
 $formButton.css({
     "width": "100%",
@@ -123,9 +181,6 @@ $formFields.children("label").css({
     "font-size": "13.5px"
 })
 
-const nameInputValue = () => $formFields.children("input")[0].value;
-const passwordInputValue = () => $formFields.children("input")[1].value;
-
 // > LOGIN MODAL
 
 $loginModal.css({
@@ -138,24 +193,6 @@ $loginModal.css({
     "background-color": "rgb(34, 34, 34)"
 });
 
-function applyResponsivenessToLoginModal(width) {
-    if(width <= WINDOW_MOBILE_BREAKPOINT) {
-        $loginModal.css({
-            "height": "calc(100% - 20px)",
-            "width": "calc(100% - 20px)",
-            "border": "none",
-            "position": "unset"
-        });
-    } else {
-        $loginModal.css({
-            "height": "300px",
-            "width": "400px",
-            "border": "1px solid rgb(68, 68, 68)",
-            "position": "relative"
-        });
-    }
-}
-
 // > LOGIN MODAL HEADING
 
 $loginModalHeading.css({
@@ -163,29 +200,6 @@ $loginModalHeading.css({
     "background-color": "rgb(34, 34, 34)",
 });
 
-function applyResponsivenessToLoginModalHeading(width) {
-    if(width <= WINDOW_MOBILE_BREAKPOINT) {
-        $loginModalHeading.css({
-            "top": "20px",
-            "padding": "10px 0",
-            "border-bottom": "1px solid rgba(0, 0, 0, 0.2)",
-            "width": "80%",
-            "text-align": "center",
-            "left": "10%",
-            "font-size": "20px"
-        });
-    } else {
-        $loginModalHeading.css({
-            "top": "-15px",
-            "padding": "5px 10px",
-            "border-bottom": "none",
-            "width": "unset",
-            "text-align": "unset",
-            "left": "unset",
-            "font-size": "unset"
-        });
-    }
-}
 
 // --------------------------- RESIZE EVENTS ---------------------------
 
